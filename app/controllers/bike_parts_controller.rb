@@ -1,0 +1,3 @@
+class BikePartsController < ApplicationController
+    
+end

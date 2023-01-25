@@ -9,17 +9,6 @@ Bicycle.destroy_all
 User.destroy_all
 Part.destroy_all
 
-
-
-
-
-puts 'seeding user'
-
-u1 = User.create(first_name: 'Sam', last_name: 'Robinson', user_name: 'BikeGuy', password: '12345678', email: 'bike_guy69420@aol.com')
-u2 = User.create(first_name: 'tony', last_name: 'howdy', user_name: 'Tony_Time', password: '12345678', email: 'tony_tim@aol.com')
-u3 = User.create(first_name: 'User3', last_name: 'User3', user_name: 'User3', password: '18005882', email: 'user3@aol.com')
-puts 'users seeded'
-
 puts 'seeding parts'
 p1 = Part.create(
     component: 'frame', 
@@ -102,8 +91,9 @@ b2 = Bicycle.create(
     front_d: 'Shimano Ultegra', 
     back_d: 'Shimano Ultegra', 
     chain: 'Shimano Ultegra', 
-    image_url: , 
+    image_url: 'https://i.imgur.com/kdue3Eg.jpeg', 
 )
+
 b3 = Bicycle.create(
     name: 'GroceryGetter', 
     species: 'Bianchi', 
@@ -128,14 +118,12 @@ b3 = Bicycle.create(
 )
 puts 'bike seeded'
 
-
-
 puts 'seeding users'
 u1 = User.create(
     first_name: 'John',
     last_name: 'Doe',
     user_name: 'JohnDoe', 
-    password: 12345, 
+    password: "123456", 
     email: 'johndoe@gmail.com'
 )
 
@@ -143,15 +131,15 @@ u2 = User.create(
     first_name: 'Jane',
     last_name: 'Doe',
     user_name: 'JaneDoe', 
-    password: 123345566, 
+    password: "123456", 
     email: 'janeDoe@gmail.com' 
 )
 
-u2 = User.create(
+u3 = User.create(
     first_name: 'Jim',
     last_name: 'Doe',
-    user_name: 'jim_doe'
-    password: 123456767, 
+    user_name: 'jim_doe',
+    password: "123456", 
     email: 'jim.doe@gmail.com'
 )
 puts 'users seeded'
@@ -164,19 +152,18 @@ i1 = Inventory.create(
     part_id: p1.id, 
     quantity: 5
 )
-
 i2 = Inventory.create(
     user_id: u2.id, 
     part_id: p2.id, 
     quantity: 20
 )
-
 i3 = Inventory.create(
     user_id: u3.id, 
     part_id: p3.id, 
     quantity: 1 
 )
-puts 'inventory seeded '
+
+puts 'inventory seeded'
 
 puts 'seeding garage'
 g1 = Garage.create(
@@ -191,7 +178,7 @@ g2 = Garage.create(
 
 g3 = Garage.create(
     user_id: u3.id, 
-    bicycle_id: b1.id 
+    bicycle_id: b3.id 
 )
 puts 'inventory seeded'
 

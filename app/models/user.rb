@@ -3,4 +3,6 @@ class User < ApplicationRecord
     has_many :bicycles, through: :garages
     has_many :inventories
     has_many :parts, through: :inventories
+
+    has_secure_password
 end

@@ -1,9 +1,13 @@
 
 puts 'clearing db'
 
+
+Inventory.destroy_all
+Garage.destroy_all
 BikePart.destroy_all
 Bicycle.destroy_all
 User.destroy_all
+Part.destroy_all
 
 
 
@@ -14,305 +18,199 @@ puts 'seeding user'
 u1 = User.create(first_name: 'Sam', last_name: 'Robinson', user_name: 'BikeGuy', password: '12345678', email: 'bike_guy69420@aol.com')
 u2 = User.create(first_name: 'tony', last_name: 'howdy', user_name: 'Tony_Time', password: '12345678', email: 'tony_tim@aol.com')
 u3 = User.create(first_name: 'User3', last_name: 'User3', user_name: 'User3', password: '18005882', email: 'user3@aol.com')
+puts 'users seeded'
 
+puts 'seeding parts'
+p1 = Part.create(
+    component: 'frame', 
+    make: 'colnago', 
+    model: 'espirit', 
+    material: 'steel', 
+    size: 54.00, 
+    metric: true, 
+    weight: 25.00, 
+    price: 1250.00, 
+    species: 'road' 
+)
 
+p2 = Part.create(
+    component: 'fork', 
+    make: 'colnago', 
+    model: 'espirit', 
+    material: 'steel', 
+    size: 1.00, 
+    metric: true, 
+    weight: 7, 
+    price: 500.00, 
+    species: 'road' 
+)
+
+p3 = Part.create(
+    component: 'saddle', 
+    make: 'Selle San Marcos', 
+    model: 'concor', 
+    material: 'leather', 
+    size: 115.00, 
+    metric: true, 
+    weight: 2.00, 
+    price: 125.00, 
+    species: 'road'
+)
+puts 'parts seeded'
 
 puts 'seeding bike'
-b1 = Bicycle.create(name: 'Pony')
-b2 = Bicycle.create(name: 'yrs')
-b3 = Bicycle.create(name: 'thenbadagsd')
-
-
-puts 'seeding bp'
-
-p1 = BikePart.create(
-    name: 'stem', 
-    species: 'track', 
-    user_id: u1.id, 
-    bicycle_id: b1.id, 
-    component: 'stem', 
-    make: 'salsa', 
-    model: 'stem - 123', 
-    material: 'aluminum', 
-    size: 110, 
-    metric: true, 
-    weight: 5.00, 
-    price: 20.00
+b1 = Bicycle.create(
+    name: 'Wild Hawg', 
+    species: 'gravel', 
+    frame: 'Jamis Renegade', 
+    fork: 'Jamis Adventure Eco', 
+    handlebars: 'Ritchey Evo Max' , 
+    bar_tape: 'supacaz', 
+    wheel: 'WTB tubeless', 
+    tire: 'Panaracer Gravel King', 
+    headset: 'FSA Orbit', 
+    stem: 'Ritchey 4 Axis', 
+    cranks: 'FSA Gossamer', 
+    pedals: 'Crank Brothers Stamp', 
+    seatpost: 'Ritche', 
+    saddle: 'Brooks B-17', 
+    brake: 'TRP Spyres', 
+    shifter: 'Shimano Tiagra', 
+    front_d: 'Shimano Tiagra', 
+    back_d: 'Shimano Tiagra', 
+    chain: 'Shimano Tiagra', 
+    image_url: 'https://www.jamisbikes.com/wp-content/uploads/2023/01/22_renegades2-praxis_root_beer.png'
 )
 
-p2 = BikePart.create(
-    name: 'green track frame', 
-    species: 'track', 
-    user_id: u1.id, 
-    bicycle_id: b1.id, 
-    component: 'frame', 
-    make: 'bianchi', 
-    model: 'pista', 
-    material: '4130', 
-    size: 56.00, 
-    metric: true, 
-    weight: 15.00, 
-    price: 200.00
+b2 = Bicycle.create(
+    name: 'Pony', 
+    species: 'road', 
+    frame: 'Mondonico', 
+    fork: 'Mondonico', 
+    handlebars: 'Salsa 144', 
+    bar_tape: 'yeller', 
+    wheel: 'Mavic OpenPro' , 
+    tire: 'Continental GatorSkins', 
+    headset: 'Shimano DuraAce', 
+    stem: 'Quill', 
+    cranks: 'Shimano DuraAce', 
+    pedals: 'CrankBrothers EggBeaters', 
+    seatpost: 'Thompson', 
+    saddle: 'Brooks', 
+    brake: 'Shimano Ultegra', 
+    shifter: 'Shimano Ultegra', 
+    front_d: 'Shimano Ultegra', 
+    back_d: 'Shimano Ultegra', 
+    chain: 'Shimano Ultegra', 
+    image_url: , 
+)
+b3 = Bicycle.create(
+    name: 'GroceryGetter', 
+    species: 'Bianchi', 
+    frame: 'Pista', 
+    fork: 'Pista', 
+    handlebars: 'Drops', 
+    bar_tape: 'n/a', 
+    wheel: 'Velocity Deep V', 
+    tire: 'Continental Gatorskins', 
+    headset: 'Chris King', 
+    stem: 'Salsa', 
+    cranks: 'Campagnolo Record', 
+    pedals: 'Shimano SPD', 
+    seatpost: 'Thompson' , 
+    saddle: 'Selle San Marcos Concor', 
+    brake: nil, 
+    shifter: nil, 
+    front_d: nil, 
+    back_d: nil, 
+    chain: 'BMX', 
+    image_url: 'https://i.imgur.com/kdue3Eg.jpeg' , 
+)
+puts 'bike seeded'
+
+
+
+puts 'seeding users'
+u1 = User.create(
+    first_name: 'John',
+    last_name: 'Doe',
+    user_name: 'JohnDoe', 
+    password: 12345, 
+    email: 'johndoe@gmail.com'
 )
 
-p3 = BikePart.create(
-    name: 'track fork', 
-    species: 'track', 
-    user_id: u1.id, 
-    bicycle_id: b1.id, 
-    component: 'fork', 
-    make: 'bianchi', 
-    model: 'pista', 
-    material: '4130', 
-    size: 56,
-    metric: true, 
-    weight: 15.00, 
-    price: 150.00
+u2 = User.create(
+    first_name: 'Jane',
+    last_name: 'Doe',
+    user_name: 'JaneDoe', 
+    password: 123345566, 
+    email: 'janeDoe@gmail.com' 
 )
 
-puts 'finis'
+u2 = User.create(
+    first_name: 'Jim',
+    last_name: 'Doe',
+    user_name: 'jim_doe'
+    password: 123456767, 
+    email: 'jim.doe@gmail.com'
+)
+puts 'users seeded'
 
+#JOIN TABLES 
 
+puts 'seeding inventory'
+i1 = Inventory.create(
+    user_id: u1.id, 
+    part_id: p1.id, 
+    quantity: 5
+)
 
+i2 = Inventory.create(
+    user_id: u2.id, 
+    part_id: p2.id, 
+    quantity: 20
+)
 
+i3 = Inventory.create(
+    user_id: u3.id, 
+    part_id: p3.id, 
+    quantity: 1 
+)
+puts 'inventory seeded '
 
+puts 'seeding garage'
+g1 = Garage.create(
+    user_id: u1.id, 
+    bicycle_id: b1.id, 
+)
 
+g2 = Garage.create(
+    user_id: u2.id, 
+    bicycle_id: b2.id 
+)
 
+g3 = Garage.create(
+    user_id: u3.id, 
+    bicycle_id: b1.id 
+)
+puts 'inventory seeded'
 
+puts 'seeding bike parts'
+bp1 = BikePart.create(
+    bicycle_id: b1.id, 
+    part_id: p1.id, 
+    quantity: 1
+)
 
+bp2 = BikePart.create(
+    bicycle_id: b2.id, 
+    part_id: p2.id , 
+    quantity: 2
+)
 
-
-
-
-
-
-
-
-# puts 'clearing database'
-
-
-# BikePart.destroy_all
-# Bicycle.destroy_all 
-# # Garage.destroy_all
-# User.destroy_all
-
-# puts 'seeding garage'
-# # g1 = Garage.create(user_id: 1)
-# # g2 = Garage.create(user_id: 2)
-# # g3 = Garage.create(user_id: 3)
-
-
-
-# puts 'seeding users'
-# u1 = User.create(first_name: 'Sam', last_name: 'Robinson', user_name: 'Ubu69420', email: 'test@example.com', password: '1234', zip: '60608')
-# u2 = User.create(first_name: 'Stammy', last_name: 'Rowlkinson', user_name: 'Ubu6942fdasdfasdf0', email: 'test@exaasdfasdfmple.com', password: '1234gasdgasd', zip: '60609')
-# u3 = User.create(first_name: 'Klammy', last_name: 'Pagaent', user_name: 'Usdfasdf0', email: 'tester@exaasdfasdfmple.com', password: '1234gasdfasdfasdgasd', zip: '606079')
-
-
-
-
-# puts 'seeding bicycle'
-# b1 = Bicycle.create(
-#     # garage_id: g1.id,
-#     name: 'pony', 
-#     species: 'road',
-#     # user_id: u1.id
-# )
-
-# puts 'seeding bike_parts'
-# p1 = BikePart.create(
-#     # component: 'frame', 
-#     # make: 'bikeframe', 
-#     # model: 'pista',
-#     name: 'aluminum', 
-#     size: '54', 
-#     metric: true,
-#     weight: 18.07, 
-#     price: 250.00, 
-#     species: 'track'
-# )
-
-# p2 = BikePart.create(
-#     component: 'fork', 
-#     make: 'bianchi', 
-#     model: 'pista',
-#     material: 'aluminum', 
-#     size: '15', 
-#     metric: true,
-#     weight: 5, 
-#     price: 125.00, 
-#     species: 'track' 
-
-# )
-
-# p3 = BikePart.create(
-#     component: 'handlebars', 
-#     make: 'bianchi', 
-#     model: 'pista',
-#     material: 'steel', 
-#     size: '12', 
-#     metric: true,
-#     weight: 2, 
-#     price: 125.00, 
-#     species: 'track' 
-# )
-
-# p4 = BikePart.create(
-#     component: 'wheels', 
-#     make: 'mavic', 
-#     model: 'open-pro',
-#     material: 'aluminum', 
-#     size: '12', 
-#     metric: true,
-#     weight: 2, 
-#     price: 400.00, 
-#     species: 'track'
-# )
-
-
-# p5 = BikePart.create(
-#     component: 'tires', 
-#     make: 'continental', 
-#     model: 'gatorskins',
-#     material: 'kevlar', 
-#     size: '23', 
-#     metric: true,
-#     weight: 2, 
-#     price: 60.00, 
-#     species: 'road'
-# )
-
-# p6 = BikePart.create(
-#     component: 'headset', 
-#     make: 'chris king', 
-#     model: 'no-thread-set',
-#     material: 'steel', 
-#     size: '1 1/8', 
-#     metric: false,
-#     weight: 2, 
-#     price: 125.00, 
-#     species: 'track'
-# )
-
-# p7 = BikePart.create(
-#     component: 'stem', 
-#     make: 'bianchi', 
-#     model: 'pista',
-#     material: 'steel', 
-#     size: '12', 
-#     metric: true,
-#     weight: 2, 
-#     price: 125.00, 
-#     species: 'track'
-# )
-
-# p8 = BikePart.create(
-#     component: 'cranks', 
-#     make: 'shimano', 
-#     model: 'ultegra',
-#     material: 'aluminum', 
-#     size: '172.5', 
-#     metric: true,
-#     weight: 2, 
-#     price: 200.00, 
-#     species: 'track'
-# )
-
-# p9 = BikePart.create(
-#     component: 'pedals', 
-#     make: 'look', 
-#     model: 'dunno',
-#     material: 'steel', 
-#     size: 'NA', 
-#     metric: true,
-#     weight: 2, 
-#     price: 250.00, 
-#     species: 'track'
-# )
-
-
-# p10 = BikePart.create(
-#     component: 'seatpost', 
-#     make: 'thompson', 
-#     model: 'triathlon',
-#     material: 'aluminum', 
-#     size: '12', 
-#     metric: true,
-#     weight: 2, 
-#     price: 200.00, 
-#     species: 'track'
-# )
-
-# p11 = BikePart.create(
-#     component: 'saddle', 
-#     make: 'selle royale', 
-#     model: 'concor',
-#     material: 'leather', 
-#     size: '15', 
-#     metric: true,
-#     weight: 2, 
-#     price: 200.00, 
-#     species: 'road'
-# )
-
-# p12 = BikePart.create(
-#     component: 'brakes', 
-#     make: 'shimano', 
-#     model: 'dura-ace',
-#     material: 'aluminium', 
-#     size: '100', 
-#     metric: true,
-#     weight: 2, 
-#     price: 200.00, 
-#     species: 'road'
-# )
-
-# p13 = BikePart.create(
-#     component: 'shifters', 
-#     make: 'shimano', 
-#     model: 'dura-ace',
-#     material: 'aluminium', 
-#     size: '15', 
-#     metric: true,
-#     weight: 2, 
-#     price: 200.00, 
-#     species: 'road'
-# )
-
-# p14 = BikePart.create(
-#     component: 'front_d', 
-#     make: 'shimano', 
-#     model: 'dura-ace',
-#     material: 'aluminium', 
-#     size: '15', 
-#     metric: true,
-#     weight: 2, 
-#     price: 200.00, 
-#     species: 'road'
-# )
-
-# p15 = BikePart.create(
-#     component: 'back_d', 
-#     make: 'shimano', 
-#     model: 'dura-ace',
-#     material: 'aluminium', 
-#     size: '15', 
-#     metric: true,
-#     weight: 2, 
-#     price: 200.00, 
-#     species: 'road'
-# )
-
-# p16 = BikePart.create(
-#     component: 'chain', 
-#     make: 'shimano', 
-#     model: 'dura-ace',
-#     material: 'aluminium', 
-#     size: '15', 
-#     metric: true,
-#     weight: 20, 
-#     price: 200.00, 
-#     species: 'road'
-# )
-# puts 'bike parts seeded'
-
+bp3 = BikePart.create(
+    bicycle_id: b3.id, 
+    part_id: p3.id, 
+    quantity: 1
+)
+puts 'bike parts seeded'

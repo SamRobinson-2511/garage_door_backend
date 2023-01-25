@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_25_165309) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_25_172522) do
   create_table "bicycles", force: :cascade do |t|
     t.string "name"
     t.string "species"
@@ -70,7 +70,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_25_165309) do
     t.string "make"
     t.string "model"
     t.string "material"
-    t.string "size"
+    t.float "size"
     t.boolean "metric"
     t.float "weight"
     t.float "price"

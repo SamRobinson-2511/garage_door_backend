@@ -10,28 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_24_002848) do
-# Could not dump table "bike_parts" because of following StandardError
-#   Unknown type 'garage' for column 'belongs_to'
-
-  create_table "garages", force: :cascade do |t|
-    t.integer "user_id", null: false
+ActiveRecord::Schema[7.0].define(version: 2023_01_25_144716) do
+  create_table "bicycles", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_garages_on_user_id"
+  end
+
+  create_table "bike_parts", force: :cascade do |t|
+    t.string "name"
+    t.string "species"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "bicycle_id"
+    t.string "component"
+    t.string "make"
+    t.string "model"
+    t.string "material"
+    t.float "size"
+    t.boolean "metric"
+    t.float "weight"
+    t.float "price"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "user_name"
-    t.string "password_digest"
+    t.string "password"
     t.string "email"
-    t.string "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "garages", "users"
 end

@@ -1,3 +1,2 @@
 class BikePartsController < ApplicationController
-    
 end

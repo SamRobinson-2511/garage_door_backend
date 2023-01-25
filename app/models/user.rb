@@ -1,3 +1,5 @@
 class User < ApplicationRecord
-    has_secure_password
+    has_many :bike_parts
+    has_many :bicycles, through: :bike_parts
+
 end

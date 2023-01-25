@@ -1,4 +1,7 @@
 class Bicycle < ApplicationRecord
-    belongs_to :garage
     has_many :bike_parts
+    has_many :users, through: :bike_parts
+
+
+    
 end

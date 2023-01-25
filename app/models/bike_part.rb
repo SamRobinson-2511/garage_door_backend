@@ -1,4 +1,4 @@
 class BikePart < ApplicationRecord
-  belongs_to :user
-  belongs_to :bicycle
+    belongs_to :bicycle
+    belongs_to :part 
 end

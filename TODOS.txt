@@ -1,0 +1,23 @@
+1. parts cannot belong to garage and be used on a bike
+2. articulate what constitutes a bike (what components are required)
+3. Oauth reseearch
+4. Maintenance Log on 
+5. FULL CRUD on part submission
+6. At least CREATE + READ user 
+7. Full CRUD bike ++ ADD COMPLETE 
+8. Full CRUD user
+9. ** ADD garage to inventory parts  
+10. ++ CREATE puts part into Garage
+11. ++ assembling bike in Garage
+
+
+_____________
+garage == join table between parts and complete Bicycle
+
+class Garage 
+    has_many :bike_parts
+    has_many :bicycles
+
+
+https://www.ananunesdasilva.com/posts/understanding-activerecord-left-outer-joins
+

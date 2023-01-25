@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-    has_many :bike_parts
-    has_many :bicycles, through: :bike_parts
-
+    has_many :garages 
+    has_many :bicycles, through: :garages
+    has_many :inventories
+    has_many :parts, through: :inventories
 end

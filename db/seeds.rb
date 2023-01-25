@@ -30,7 +30,7 @@ p1 = BikePart.create(
     species: 'track', 
     user_id: u1.id, 
     bicycle_id: b1.id, 
-    component: 'stemd', 
+    component: 'stem', 
     make: 'salsa', 
     model: 'stem - 123', 
     material: 'aluminum', 

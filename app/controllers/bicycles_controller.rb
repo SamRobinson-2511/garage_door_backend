@@ -52,7 +52,7 @@ class BicyclesController < ApplicationController
             :front_d, 
             :back_d, 
             :chain, 
-            :image_url
+            :image_url,
             :created_at, 
             :updated_at
         )

@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
     
-
-
     def show 
         user = User.find(session[:user_id]) #see fetch('/authorized in theater company App.js')
         # user = User.find(params[:id])

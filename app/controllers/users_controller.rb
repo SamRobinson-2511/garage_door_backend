@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+    
+    skip_before_action :authorized_user, only: [:create]
+    #not sure what this is for, noticed it in authorization video at 13min mark. 
 
     def show 
         user = User.find(params[:id])
@@ -11,7 +14,7 @@ class UsersController < ApplicationController
     end
 
     def login #this will be adjusted in cookies/following lecture video
-        user = User.find_by(name: params[:name])
+        user = User.find_by(user_name: params[:user_name])
         if user && user.authenticate(params[:password])
             render json: user, status: :ok
         else

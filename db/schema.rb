@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_01_25_221834) do
-
   create_table "bicycles", force: :cascade do |t|
     t.string "name"
     t.string "species"

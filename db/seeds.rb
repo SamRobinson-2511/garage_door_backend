@@ -201,3 +201,5 @@ bp3 = BikePart.create(
     quantity: 1
 )
 puts 'bike parts seeded'
+
+puts "seeding complete✅"

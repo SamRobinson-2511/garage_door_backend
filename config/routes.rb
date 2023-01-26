@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :bike_parts, only: [:create, :show]
   resources :parts, only: [:index, :show, :create, :update, :destroy] 
   resources :bicycles, only: [:index, :show, :create, :update, :destroy] 
-  resources :users
+  resources :users, only: [:index, :show]
   resources :garages, only: [:create, :index, :show]
 
 
@@ -17,8 +17,5 @@ Rails.application.routes.draw do
   get '/authorized', to: 'users#show'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-
-
-
 
 end

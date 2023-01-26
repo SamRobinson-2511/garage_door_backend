@@ -1,4 +1,5 @@
 class GaragesController < ApplicationController
+rescue_from ActiveRecord::RecordNotFound, with: :garage_not_found
 
     
     def index 
@@ -14,7 +15,6 @@ class GaragesController < ApplicationController
         g = Garage.create!( garage_params ) 
         render json: g, status: :created
     end
-
     
     private 
 
@@ -23,6 +23,10 @@ class GaragesController < ApplicationController
             :user_id, 
             :bicycle_id
         )
+    end
+
+    def garage_not_found
+        render json: {errors: ['Garage not found']}, status: :not_found
     end
 
 end

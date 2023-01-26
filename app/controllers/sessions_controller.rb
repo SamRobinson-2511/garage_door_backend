@@ -11,7 +11,11 @@ class SessionsController < ApplicationController
     end
 
 
-
+    #here, IX goes to  navigation.js 31min mark authorization video
+    def destroy   
+        session.delete :user_id
+        head :no_content
+    end
 
 
 

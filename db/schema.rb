@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_01_25_221834) do
+
   create_table "bicycles", force: :cascade do |t|
     t.string "name"
     t.string "species"
@@ -65,6 +66,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_25_221834) do
     t.index ["user_id"], name: "index_inventories_on_user_id"
   end
 
+  create_table "maintenance_logs", force: :cascade do |t|
+    t.integer "bicycle_id", null: false
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bicycle_id"], name: "index_maintenance_logs_on_bicycle_id"
+  end
+
   create_table "parts", force: :cascade do |t|
     t.string "component"
     t.string "make"
@@ -91,4 +100,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_25_221834) do
 
   add_foreign_key "garages", "bicycles"
   add_foreign_key "garages", "users"
+  add_foreign_key "maintenance_logs", "bicycles"
 end

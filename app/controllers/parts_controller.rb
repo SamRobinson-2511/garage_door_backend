@@ -1,5 +1,6 @@
 class PartsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :part_invalid
+    rescue_from ActiveRecord::RecordNotFound, with: :part_not_found
 
     def index 
         render json: Part.all, status: :ok
@@ -44,10 +45,12 @@ class PartsController < ApplicationController
         )
     end
 
+    def part_not_found
+        render json: { errors: ['Part not found']}, status: 404
+    end
+
     def part_invalid invalid_part
         render json: {errors: invalid_part.record.errors.full_messages}, status: 422
     end
-
-
 
 end

@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  resources :maintenance_logs
   resources :inventories, only: [:index, :show]
-  resources :bike_parts 
+  resources :bike_parts, only: [:create, :show]
   resources :parts, only: [:index, :show, :create, :update, :destroy] 
   resources :bicycles, only: [:index, :show, :create, :update, :destroy] 
   resources :users
-  resources :garages
+  resources :garages, only: [:create, :index, :show]
 
 
 
